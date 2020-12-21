@@ -5,10 +5,13 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+var util= require('util');
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { listenerCount } = require("process");
 
 
 // Write code to use inquirer to gather information about the 
@@ -16,7 +19,7 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member 
 //(using the correct classes as blueprints!)
 
-const  questions = [{
+const questions = [{
     type: "input",
     name: "role",
     message: "What is your position at the company?"
@@ -45,7 +48,6 @@ const  questions = [{
     },
 
 ]
-
 // Setting up questions for managers, engineers and interns.
 // For manager, ask office number 
 // For engineer ask github user name 
@@ -75,6 +77,29 @@ const managerQuestions = {
   },
 ]
 
+var worker = function(type){
+this.type= type;
+
+};
+
+//The different employee types should all inherit some methods 
+//and properties from a base class of Employee.
+
+util.inherits(worker, )
+
+// var employee = new worker('employee');
+var manager = new worker('manager');
+var engineer = new worker('engineer');
+var intern = new worker('intern');
+
+var workers=[manager, engineer, intern];
+
+workers.forEach(function(worker){
+
+});
+
+
+
 //Calling the function to pass in all employee objects
 const teamInfo = render(employeeArray);
 
@@ -101,7 +126,7 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-    inquirer.prompt(input)
+    inquirer.prompt(input,list)
     .then(data => { 
         console.log(data);
         var temp = html(data)
