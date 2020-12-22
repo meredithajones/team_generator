@@ -18,10 +18,15 @@
   },
   "homepage": "https://github.com/meredithajones/team_generator#readme",
   "dependencies": {
+    "bootswatch": "^4.5.3",
     "inquirer": "^7.3.3",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "jest": "^26.6.3"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }

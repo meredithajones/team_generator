@@ -12,6 +12,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const { listenerCount } = require("process");
+const { ENGINE_METHOD_RAND } = require("constants");
 
 
 // Write code to use inquirer to gather information about the 
@@ -19,7 +20,9 @@ const { listenerCount } = require("process");
 // and to create objects for each team member 
 //(using the correct classes as blueprints!)
 
-const questions = [{
+//Should I be using var, or const here?
+const questions = [
+    {
     type: "input",
     name: "role",
     message: "What is your position at the company?"
@@ -46,62 +49,52 @@ const questions = [{
             return "Please enter a valid Email address"
         }
     },
+}
+];
 
-]
+employee.method();
+manager.method();
+engineer.method();
+intern.method();   
+
+// inquirer.prompt(questions).then((answers) => {
+//     console.log(JSON.stringify(answers, null, '  '));
+//   });
+
+
+
 // Setting up questions for managers, engineers and interns.
 // For manager, ask office number 
 // For engineer ask github user name 
 // For intern ask for school name 
-const managerQuestions = {
-    type: "input",
-    message: "What is your manager's office number?",
-    name: "number"
-  },
-  const engineerQuestions = {
-    type: "input",
-    message: "What is your engineer's github user name?",
-    name: "gitUser"
-  },
-  const internQuestions = {
-    type: "input",
-    message: "What is your intern's school?",
-    name: "schoolIntern"
-  },
+// const managerQuestions = [
+// {
+//     type: "input",
+//     message: "What is your manager's office number?",
+//     name: "number"
+//   },
+// ]
+//   const engineerQuestions = [
+//   {
+    // type: "input",
+//     message: "What is your engineer's github user name?",
+//     name: "gitUser"
+//   },
+//   ]
 
-  //Add more employees
-  const newQuestion = {
-    type: "list",
-    message: "Would you like to add another team member?",
-    choices: ["yes", "no"],
-    name: "restart"
-  },
-]
+//   const internQuestions = [
+//   {
+//     type: "input",
+//     message: "What is your intern's school?",
+//     name: "schoolIntern"
+//   },
+//   ]
 
-var worker = function(type){
-this.type= type;
-
-};
-
-//The different employee types should all inherit some methods 
-//and properties from a base class of Employee.
-
-util.inherits(worker, )
-
-// var employee = new worker('employee');
-var manager = new worker('manager');
-var engineer = new worker('engineer');
-var intern = new worker('intern');
-
-var workers=[manager, engineer, intern];
-
-workers.forEach(function(worker){
-
-});
-
-
+//   //Add more employees
+// //   
 
 //Calling the function to pass in all employee objects
-const teamInfo = render(employeeArray);
+// const teamInfo = render(employeeArray);
 
 // After the user has input all employees desired, 
 //call the `render` function (required
@@ -119,12 +112,12 @@ const teamInfo = render(employeeArray);
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-function writeToFile(fileName, data) {
-    console.log(fileName, data)
-     fs.writeFileSync(path.join(process.cwd(), fileName), data)
-}
+// function writeToFile(fileName, data) {
+//     console.log(fileName, data)
+//      fs.writeFileSync(path.join(process.cwd(), fileName), data)
+// }
 
-// function to initialize program
+// function to initialize 
 function init() {
     inquirer.prompt(input,list)
     .then(data => { 
@@ -135,6 +128,7 @@ function init() {
             
     })
 }
+init();
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
