@@ -100,6 +100,7 @@ async function init() {
  
   //Creating a new manager with office number prompt
   //Use the "employee" answers for all but the office number
+  
   if (role === "Manager") {
     const officenumber = await inquirer.prompt(managerQuestions);
     const officeNumber = officenumber.number;
