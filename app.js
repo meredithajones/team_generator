@@ -37,7 +37,7 @@ var questions = [
 {
     type: "input",
     name: "email",
-    message: "Please enter you email address",
+    message: "Please enter the employee's email address",
     validate: function (value) {
         let mail = value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
         if (mail) {
@@ -52,7 +52,7 @@ var questions = [
     type: "list",
     name: "role",
     message: "What is the role of the employee you are adding?",
-    choices: ["Employee", "Manager", "Engineer", "Intern"],
+    choices: ["Manager", "Engineer", "Intern"],
 },
 ];
 //Create targeted quesitons for exclusive to a manager, engineer, and intern. 
@@ -74,7 +74,7 @@ const engineerQuestions = {
 
 const internQuestions = {
   type: "input",
-  message: "What shcool is the intern attending?",
+  message: "What school is the intern attending?",
   name: "schoolIntern"
 };
 
@@ -102,10 +102,10 @@ async function init() {
   //Use the "employee" answers for all but the office number
   
   if (role === "Manager") {
-    const officenumber = await inquirer.prompt(managerQuestions);
-    const officeNumber = officenumber.number;
+    const officeNumber = await inquirer.prompt(managerQuestions);
+    const officenumber = officeNumber.number;
     //Creating a new employee with the manager info.
-    const employee = new Manager(name, id, email, officeNumber);
+    const employee = new Manager(name, id, email, officenumber);
     // push the manager constructor object into the employee array
     employeeArray.push(employee);
 
