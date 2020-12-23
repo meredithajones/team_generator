@@ -22,21 +22,16 @@ const { ENGINE_METHOD_RAND } = require("constants");
 
 //Should I be using var, or const here?
 var questions = [
-    {
-    type: "input",
-    name: "role",
-    message: "What is your position at the company?"
-},
-
+   
 {
     type: "input",
     name: "name",
-    message: "What is your name?"
+    message: "What is the employee's name?"
 },
 {
     type: "input",
     name: "id",
-    message: "What is your employee ID number?"
+    message: "What is the employee's ID number?"
 },
 
 {
@@ -51,16 +46,16 @@ var questions = [
             return "Please enter a valid Email address"
         }
     }
-    },
+},
 
-{ 
+{
     type: "list",
-    message: "What type of employee would you like to add?",
-    choices: ["Manager", "Engineer", "Intern"],
-    name: "role"
-  }
+    name: "role",
+    message: "What is the role of the employee you are adding?",
+    choices: ["Employee", "Manager", "Engineer", "Intern"],
+},
 ];
-//Create targeted quesitons for manager, engineer, and intern. 
+//Create targeted quesitons for exclusive to a manager, engineer, and intern. 
 //For a manager ask for their office number 
 //For an engineer ask for their github user name 
 //For an intern ask for their school
@@ -103,7 +98,7 @@ async function init() {
   const {name, id, email, role} = userResponse;
 
  
-  //Creating a new manager 
+  //Creating a new manager with office number prompt
   //Use the "employee" answers for all but the office number
   if (role === "Manager") {
     const officenumber = await inquirer.prompt(managerQuestions);
@@ -112,7 +107,8 @@ async function init() {
     const employee = new Manager(name, id, email, officeNumber);
     // push the manager constructor object into the employee array
     employeeArray.push(employee);
-    //Creating an engineer
+
+    //Creating an engineer with gitHub prompt
     //need to use gitAcct response 
   } else if (role === "Engineer") {
     const gitHub = await inquirer.prompt(engineerQuestions);
@@ -120,15 +116,16 @@ async function init() {
     const employee = new Engineer(name, id, email, github);
     // push the engineer constructor object into the employeeArray
     employeeArray.push(employee);
-    //Creating an intern
+
+    //Creating an intern with school attending prompt
   } else if (role === "Intern") {
     const schoolObj = await inquirer.prompt(internQuestions);
     const school = schoolObj.schoolIntern
     const employee = new Intern(name, id, email, school);
-    // push the intern constructor object into employeeArray
+    // push the intern object into employeeArray
     employeeArray.push(employee);
   };
-    // Ask them if they want to add another employee
+    // Ask user if they want to add another employee
   const restartInquirer = await inquirer.prompt(finalQuestion);
   const {restart} = restartInquirer;
   if (restart === "yes") {
