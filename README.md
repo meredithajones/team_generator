@@ -38,6 +38,9 @@ Once the user has completed recording all of the employees that they would like 
 ![“”](assets/images/.png)
 
 ### Video Link
+* Gif Application Demo 
+
+![Application Usage Demo](assets/images/demo.gif)
 
 
 ## Technologies
@@ -65,7 +68,9 @@ Once the user has completed recording all of the employees that they would like 
 </details>
 
 ## Project Challenges
-* 
+Initially, I found working with so many differerent files for the first time to be very challenging. Once I spent some time looking over what each file is doing, it seemed straightforward. 
+
+It was also a bit of a process getting used to running tests on my code, which I had never done before. In the end, I came to really like being able to check on the functionality of the application that way. 
 
 ## Credits
 
