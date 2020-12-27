@@ -8,10 +8,10 @@ Team Generator – Meredith Jones
 -[Technology](#Technologies)
 
 -[Screenshots](#Screenshots)
+
+-[Installation](#Installation)
    
 -[Usage](#Usage)
-
--[Features](#Features)
 
 -[Credits](#Credits)
 
@@ -19,17 +19,23 @@ Team Generator – Meredith Jones
 
 
 ## Introduction
+I created this Team Generator application to give users the ability to easily create a visual chart displaying their managers, engineers and interns. 
+Along with listing the names and roles of these employees on visually accessible cards, based on user inputs they will also display the email addresses of each employee, the office numbers of managers, school being attended by interns, and GitHub user names for the engineers. 
 
+## Installation
+In order to run the app, you will need to run both Inquirer and Jest. If you have cloned the repository then they are already included and will just need to be run. 
+In order to run Inquirer and jest, open the app.js file using the integrated terminal and type in the command "npm i". 
 
 ## Usage 
-In order to run the application 
+In order to run the application, run "node app.js" in the integrated terminal and enter the answers to questions being prompted regarding your team. 
+Once the user has completed recording all of the employees that they would like to display, the inputs will be generated into card displays through a document located in the "output" folder titled "team.html". A user will open this file in their browser to view the completed roster of team members. 
 
 ### Screen Shots
-![“”](assets/images/landing_page_screenshot.png)
+![“”](assets/images/.png)
 
-![“”](assets/images/map.png)
+![“”](assets/images/.png)
 
-![“”](assets/images/results.png)
+![“”](assets/images/.png)
 
 ### Video Link
 
@@ -39,52 +45,40 @@ In order to run the application
 <summary>Technology used to create application</summary>
 
 * Javascript
-	Javascript and Jquery were used to create the functionality of Happy Trails. We utilized AJAX to pull the necessary data from the respective APIs used for user and trail location, as well as the characteristics of the trails being referenced.
 
-* HTML5
-	The framework for structuring Happy Trail’s layout was created using HTML version 5. 
+* HTML5 (Provided for the project)
 
-* CSS3
-	We utilized the CSS framework Bulma to style the appearance of our application. 
+* Node-JS
 
-* Bulma
-	![“An image of a section of code being styled by Bulma”](assets/images/bulmaex.png)
+* Inquirer
 
+* Jest 
 
-* APIs
-Mapquest, OpenWeather, HikingProject.com
-    ![“An image of a section of code making calls to access data from APIs ”](assets/images/ajax.png)
+* Bootstrap
+	I used Bootstrap style the cards and containers used to display each member of the team. 
+
+* Bootswatch
+    I used Bootswatch to style the color scheme of the team member' cards. 
+	![“An image of the cards being displayed”](assets/images/bulmaex.png)
+
 
 </details>
 
-### Features
-* Geolocation ability
-* Map functionality to display pin drops of trail locations
-* Local storage of user's favorite trails
-* Modal to display saved favorite trails
-
-
 ## Project Challenges
-* Initially our team was working to create an app to allow users to avoid crowded locations during our current pandemic. 
-Our goal was to integrate Google’s “busy times” feature associated with stores and other destinations. Our first day of development was spent exploring API capabilities, and in the end we realized that Google’s API does not allow the information that we needed about foot traffic to be obtained from their API. We regrouped and decided to pivot to our current project to help people connect with local trails, and spend more time outdoors. 
-
-* Another hurdle that we overcame as a team was learning to merge all of our respective work for the project into Github. When we began, it felt very complex, but now as we are nearing the end of the project we have hit a good rhythm with our pushing and pulling of content while avoiding any merge errors. 
-
+* 
 
 ## Credits
 
-* [W3schools-button functionality](https://www.w3schools.com/default.asp)
-* [JQuery documentation](https://api.jquery.com/)
-* [FontAwesome for icons ](https://fontawesome.com/v3.2.1/icons/)
 * [Stack Overflow general research](https://stackoverflow.com/) 
 * [Mdn web docs general research](https://developer.mozilla.org/en-US/)
 * [AskBCS bug fixes]
-* [Hikingproject api](https://www.hikingproject.com/data)
-* [Open Weather api](https://openweathermap.org/api)
-* [Mapquest api](https://developer.mapquest.com/documentation/open/)
+* Node-JS Docs
+* Node-Package-Manager
+
 
 ## Contact
-Created by [@MeredithJones](https://github.com/meredithajones),
+Created by: [@MeredithJones](https://github.com/meredithajones),
+
 
 ## License 
 This project is licensed under the terms of the MIT license.
